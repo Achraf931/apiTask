@@ -37,7 +37,7 @@ class TaskController extends Controller
     {
         try {
             $request->validate([
-                'body' => 'required|max:250',
+                'body' => 'required',
             ]);
 
             $task = new Task();
