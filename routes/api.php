@@ -14,9 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('register', [\App\Http\Controllers\AuthController::class, 'register']);
+Route::post('signup', [\App\Http\Controllers\AuthController::class, 'signup']);
 Route::post('login', [\App\Http\Controllers\AuthController::class, 'login']);
-
-Route::middleware('auth:sanctum')->group( function () {
-    Route::resource('tasks', \App\Http\Controllers\TaskController::class);
-});
+Route::resource('tasks', \App\Http\Controllers\TaskController::class)->middleware('auth:sanctum');
